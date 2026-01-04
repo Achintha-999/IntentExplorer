@@ -5,7 +5,7 @@
 #include <ctime>
 
 DatabaseSimulated::DatabaseSimulated() {
-    // Constructor
+   
 }
 
 bool DatabaseSimulated::connect() {
@@ -22,15 +22,15 @@ bool DatabaseSimulated::ping() {
 }
 
 bool DatabaseSimulated::registerUser(const std::string& username, const std::string& password) {
-    // Check if user exists
+    
     if (users.find(username) != users.end()) {
         std::cout << "User already exists!" << std::endl;
         return false;
     }
     
-    // Register new user
+    
     users[username] = password;
-    globalScores[username] = 0;  // Initialize with 0 score
+    globalScores[username] = 0;  
     
     std::cout << "User '" << username << "' registered successfully!" << std::endl;
     return true;
@@ -53,12 +53,12 @@ bool DatabaseSimulated::loginUser(const std::string& username, const std::string
 }
 
 bool DatabaseSimulated::submitScore(const std::string& username, const std::string& game, int score) {
-    // Update global score (keep highest)
+   
     if (globalScores.find(username) == globalScores.end() || globalScores[username] < score) {
         globalScores[username] = score;
     }
     
-    // Update game-specific score
+   
     if (gameScores[game].find(username) == gameScores[game].end() || gameScores[game][username] < score) {
         gameScores[game][username] = score;
     }
@@ -72,14 +72,14 @@ std::vector<std::pair<std::string, int>> DatabaseSimulated::getSortedScores(cons
     std::vector<std::pair<std::string, int>> sortedScores;
     
     if (game == "global") {
-        // Copy global scores to vector
+  
         for (const auto& entry : globalScores) {
-            if (entry.second > 0) {  // Only include users with scores
+            if (entry.second > 0) { 
                 sortedScores.push_back(entry);
             }
         }
     } else {
-        // Copy game-specific scores to vector
+      
         auto gameIt = gameScores.find(game);
         if (gameIt != gameScores.end()) {
             for (const auto& entry : gameIt->second) {
@@ -88,7 +88,7 @@ std::vector<std::pair<std::string, int>> DatabaseSimulated::getSortedScores(cons
         }
     }
     
-    // Sort by score (descending)
+    
     std::sort(sortedScores.begin(), sortedScores.end(),
               [](const std::pair<std::string, int>& a, const std::pair<std::string, int>& b) {
                   return a.second > b.second;
@@ -133,6 +133,6 @@ std::string DatabaseSimulated::getUserRank(const std::string& username, const st
 }
 
 std::string DatabaseSimulated::getTopPlayers(int days, int limit) {
-    // For simulation, just return current leaderboard
+  
     return getGlobalLeaderboard(limit);
 }
