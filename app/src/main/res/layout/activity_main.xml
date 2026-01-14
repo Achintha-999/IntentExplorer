@@ -11,12 +11,54 @@
         android:id="@+id/homeBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/homeBtn"
+        android:layout_marginTop="@dimen/default_margin"
         android:background="@drawable/rounded_corners"
+        android:text="@string/homeBtn"
         android:textAllCaps="false"
         app:backgroundTint="@null"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/browserBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_margin"
+        android:background="@drawable/rounded_corners"
+        android:text="@string/browse_btn_txt"
+        android:textAllCaps="false"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/homeBtn"/>
+
+        <Button
+        android:id="@+id/dialBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_margin"
+        android:background="@drawable/rounded_corners"
+        android:text="@string/dial_btn"
+        android:textAllCaps="false"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/browserBtn"/>
+
+
+    <Button
+        android:id="@+id/shareBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_margin"
+        android:background="@drawable/rounded_corners"
+        android:text="Share"
+        android:textAllCaps="false"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dialBtn"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
