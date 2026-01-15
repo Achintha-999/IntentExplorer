@@ -18,14 +18,15 @@
         android:theme="@style/Theme.Intent">
         <activity
             android:name=".activity.HomeActivity"
-            android:exported="true" >
+            android:exported="true"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.SettingActivity"/>
+            android:name=".activity.SettingActivity" android:launchMode="singleTop"/>
     </application>
 
 </manifest>
